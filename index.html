@@ -6,284 +6,166 @@
 <title>Apresentação de Consórcio – Redecon</title>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-body{font-family:'Segoe UI',Arial,sans-serif;background:#e8ecf2;color:#222;font-size:13px}
+body{font-family:'Segoe UI',Arial,sans-serif;background:#eef1f5;color:#2d3748;font-size:13px}
 
-/* ===== SIDEBAR ===== */
-#sidebar{
-  position:fixed;left:0;top:0;width:310px;height:100vh;
-  background:#1a2e4a;color:#fff;padding:14px 16px;
-  overflow-y:auto;z-index:100;
-}
-#sidebar h2{font-size:11px;color:#e63329;margin-bottom:10px;letter-spacing:1px;text-transform:uppercase}
-#sidebar label{font-size:10px;color:#99aabb;display:block;margin-top:8px;margin-bottom:2px}
-#sidebar input,#sidebar select{
-  width:100%;padding:6px 8px;border:1px solid #2e4870;
-  background:#1e3655;color:#fff;border-radius:4px;font-size:12px;
-}
+/* SIDEBAR */
+#sidebar{position:fixed;left:0;top:0;width:310px;height:100vh;background:#1e3460;color:#fff;padding:14px 16px;overflow-y:auto;z-index:100}
+#sidebar h2{font-size:12px;color:#f0f3f8;margin-bottom:10px;letter-spacing:.5px;text-transform:uppercase;font-weight:700}
+#sidebar .sec-label{font-size:10px;color:#e63329;text-transform:uppercase;letter-spacing:.8px;margin-top:10px;margin-bottom:5px;font-weight:700}
+#sidebar label{font-size:10px;color:#9fb0c4;display:block;margin-top:8px;margin-bottom:2px}
+#sidebar input,#sidebar select{width:100%;padding:7px 9px;border:1px solid #34507a;background:#26436b;color:#fff;border-radius:5px;font-size:12px}
 #sidebar input:focus,#sidebar select:focus{outline:none;border-color:#e63329}
-#sidebar input::placeholder{color:#556}
-.tipo-btn{display:flex;gap:6px;margin:8px 0 4px}
-.tipo-btn button{
-  flex:1;padding:7px;border:2px solid #2e4870;background:transparent;
-  color:#99aabb;font-size:11px;font-weight:700;border-radius:4px;cursor:pointer;transition:all .2s;
-}
-.tipo-btn button.ativo{background:#e63329;border-color:#e63329;color:#fff}
-.divider{border:none;border-top:1px solid #2e4870;margin:10px 0}
-#btn-imprimir{
-  margin-top:12px;width:100%;padding:10px;background:#e63329;
-  color:#fff;border:none;border-radius:5px;font-size:13px;font-weight:700;
-  cursor:pointer;transition:background .2s;
-}
+#sidebar input::placeholder{color:#5a7194}
+.divider{border:none;border-top:1px solid #34507a;margin:12px 0}
+.tipo-btn{display:flex;gap:6px;margin:4px 0}
+.tipo-btn button{flex:1;padding:8px;border:2px solid #34507a;background:transparent;color:#9fb0c4;font-size:11px;font-weight:700;border-radius:5px;cursor:pointer;transition:all .2s}
+.tipo-btn button.ativo{background:#1e3460;border-color:#e63329;color:#fff}
+.inline-2{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.toggle-label{display:flex;align-items:center;gap:6px;font-size:11px;color:#9fb0c4;cursor:pointer;margin-top:6px}
+.toggle-label input{width:auto;accent-color:#e63329}
+.nota{font-size:9.5px;color:#7089a8;margin-top:4px;line-height:1.5}
+#btn-imprimir{margin-top:12px;width:100%;padding:12px;background:#e63329;color:#fff;border:none;border-radius:6px;font-size:13px;font-weight:700;cursor:pointer}
 #btn-imprimir:hover{background:#c0261f}
-.nota{font-size:9.5px;color:#667788;margin-top:8px;line-height:1.5}
-.sec-label{font-size:10px;color:#e63329;text-transform:uppercase;letter-spacing:.8px;margin-top:10px;margin-bottom:4px;font-weight:700}
-.inline-2{display:grid;grid-template-columns:1fr 1fr;gap:6px}
-.sim-box{background:#0f1e30;border-radius:5px;padding:10px;margin-top:6px}
-.sim-box label{color:#99aabb}
-.sim-resultado{background:#162840;border-radius:4px;padding:8px;margin-top:8px;font-size:11px;line-height:1.8;color:#ccd}
-.sim-resultado strong{color:#e63329;font-size:13px}
-.sim-resultado .sim-row{display:flex;justify-content:space-between;border-bottom:1px solid #1e3655;padding:2px 0}
-.sim-resultado .sim-row:last-child{border-bottom:none}
-.toggle-label{display:flex;align-items:center;gap:6px;cursor:pointer;margin-top:8px;font-size:11px;color:#99aabb}
-.toggle-label input[type=checkbox]{width:auto;accent-color:#e63329}
 
-/* ===== PROPOSTA WRAP ===== */
-#proposta-wrap{margin-left:310px;padding:20px;display:flex;justify-content:center;min-height:100vh}
+/* WRAP */
+#proposta-wrap{margin-left:310px;padding:24px;display:flex;justify-content:center}
+.pagina{background:#fff;width:210mm;min-height:297mm;box-shadow:0 4px 30px rgba(0,0,0,.12);display:flex;flex-direction:column}
 
-/* ===== PÁGINA A4 ===== */
-.pagina{
-  background:#fff;
-  width:210mm;
-  min-height:297mm;
-  padding:10mm 12mm 10mm;
-  box-shadow:0 4px 30px rgba(0,0,0,.15);
-  display:flex;flex-direction:column;gap:6px;
-}
+/* TOPO */
+.topo{background:#1e3460;padding:16px 22px;display:flex;justify-content:space-between;align-items:center}
+.topo-logo{height:46px;filter:brightness(0) invert(1)}
+.topo-contatos{display:flex;flex-direction:column;gap:2px;text-align:right;font-size:9.5px;color:#c5d0de}
 
-/* ===== CABEÇALHO ===== */
-.cabecalho{
-  display:flex;justify-content:space-between;align-items:center;
-  border-bottom:2.5px solid #e63329;padding-bottom:8px;
-}
-.cabecalho img{height:56px}
-.contatos{font-size:10.5px;color:#333;text-align:right;line-height:1.85}
-.contatos .c-row{display:flex;align-items:center;justify-content:flex-end;gap:5px}
-.c-ico{width:12px;height:12px;flex-shrink:0}
+/* CLIENTE FAIXA */
+.cliente-faixa{display:grid;grid-template-columns:2fr 1fr 1fr;background:#f4f6f9;border-bottom:2px solid #e63329}
+.cf-bloco{padding:8px 22px;border-right:1px solid #e0e5ec;text-align:center}
+.cf-bloco:first-child{text-align:left}
+.cf-bloco:last-child{border-right:none}
+.cf-label{font-size:8px;color:#8a94a0;text-transform:uppercase;letter-spacing:.5px;font-weight:600}
+.cf-valor{font-size:12px;color:#1e3460;font-weight:800;margin-top:2px}
 
-/* ===== BADGES ===== */
-.badges{display:flex;gap:8px;flex-wrap:wrap}
-.badge{
-  display:flex;align-items:center;gap:5px;
-  background:#e63329;color:#fff;border-radius:4px;
-  padding:3px 9px;font-size:11px;font-weight:700;
-}
-.badge-label{font-weight:400;font-size:10px}
+/* HERO */
+.hero{display:flex;align-items:stretch;gap:0;margin:16px 22px 0;border-radius:10px;overflow:hidden;box-shadow:0 2px 12px rgba(30,52,96,.12)}
+.hero-credito,.hero-parcela{flex:1;padding:18px 20px;text-align:center;display:flex;flex-direction:column;justify-content:center;gap:3px}
+.hero-credito{background:#1e3460;color:#fff}
+.hero-parcela{background:#e63329;color:#fff}
+.hero-mais{display:flex;align-items:center;justify-content:center;background:#fff;color:#1e3460;font-size:22px;font-weight:300;width:34px}
+.hero-label{font-size:10px;text-transform:uppercase;letter-spacing:1px;opacity:.85}
+.hero-valor{font-size:30px;font-weight:800;line-height:1.1}
+.hero-sub{font-size:9px;opacity:.8}
 
-/* ===== SEC TITULO ===== */
-.sec-titulo{
-  background:#1a2e4a;color:#fff;font-size:11px;font-weight:700;
-  padding:4px 10px;border-radius:3px;display:inline-block;margin-bottom:2px;
-}
+/* INFO RÁPIDA */
+.info-rapida{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:14px 22px 0}
+.ir-item{background:#f4f6f9;border-radius:8px;padding:10px;text-align:center}
+.ir-num{font-size:16px;font-weight:800;color:#1e3460}
+.ir-txt{font-size:8.5px;color:#6a7480;margin-top:2px;text-transform:uppercase;letter-spacing:.3px}
 
-/* ===== GRADE ===== */
-.grade{display:grid;grid-template-columns:1fr 1fr;gap:8px;flex:1}
+/* SEÇÕES */
+.secao{margin:18px 22px 0}
+.secao-titulo{font-size:12px;font-weight:800;color:#1e3460;padding-bottom:6px;border-bottom:2px solid #e63329;margin-bottom:10px}
 
-/* ===== CARDS ===== */
-.card{border:1.5px solid #dde4ef;border-radius:6px;padding:10px;display:flex;flex-direction:column}
-.card-titulo{
-  background:#1a2e4a;color:#fff;font-size:10px;font-weight:700;
-  letter-spacing:.5px;padding:3px 8px;border-radius:3px;margin-bottom:8px;display:inline-block;
-}
-.card ul{list-style:none;flex:1}
-.card ul li{
-  font-size:10.5px;color:#333;padding:2px 0;
-  display:flex;align-items:flex-start;gap:5px;line-height:1.4;
-}
-.card ul li::before{content:"•";color:#e63329;font-size:13px;line-height:1;flex-shrink:0;margin-top:1px}
-.card ul li strong{font-weight:700}
+/* VANTAGENS */
+.vantagens{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.vant{display:flex;align-items:center;gap:8px;font-size:11px;color:#3d4a5c}
+.vant-ico{width:18px;height:18px;background:#1e3460;color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:800;flex-shrink:0}
 
-/* ===== VEÍCULO USOS ===== */
-.uso-item{display:flex;align-items:flex-start;gap:5px;padding:2px 0;font-size:10.5px;color:#333;line-height:1.4}
-.uso-item::before{content:"•";color:#e63329;font-size:13px;line-height:1;flex-shrink:0;margin-top:1px}
-.uso-bens{
-  background:#f0f3f8;border-radius:4px;padding:5px 8px;margin-top:6px;
-  font-size:10px;color:#1a2e4a;font-weight:600;display:flex;flex-wrap:wrap;gap:4px;align-items:center;
-}
-.uso-bens span{background:#1a2e4a;color:#fff;border-radius:3px;padding:1px 6px;font-size:9.5px}
+/* CONTEMPLAÇÃO */
+.contempla-grid{display:flex;flex-direction:column;gap:6px}
+.ct-card{display:flex;align-items:center;gap:10px}
+.ct-nome{width:110px;font-size:11px;font-weight:700;color:#1e3460;flex-shrink:0}
+.ct-fid .ct-nome{color:#e63329}
+.ct-barra-wrap{flex:1;background:#eef1f5;border-radius:5px;height:22px;overflow:hidden}
+.ct-barra{height:100%;background:linear-gradient(90deg,#1e3460,#2d4a75);border-radius:5px}
+.ct-fid .ct-barra{background:linear-gradient(90deg,#e63329,#f0655c)}
+.ct-pct{width:44px;text-align:right;font-size:13px;font-weight:800;color:#1e3460;flex-shrink:0}
+.ct-fid .ct-pct{color:#e63329}
+.contempla-legenda{font-size:9px;color:#8a94a0;font-style:italic;margin-top:8px;text-align:center}
 
-/* ===== FUNIL ===== */
-.funil-wrap{display:flex;flex-direction:column;gap:4px;margin-top:4px}
-.funil-item{display:flex;align-items:center;gap:6px}
-.funil-barra-wrap{flex:1;display:flex;justify-content:flex-end}
-.funil-barra{
-  border-radius:3px 0 0 3px;height:24px;display:flex;align-items:center;
-  padding-left:8px;font-size:11px;font-weight:700;color:#fff;
-}
-.funil-label{font-size:9px;font-weight:700;color:#1a2e4a;width:72px;text-align:left;line-height:1.2;flex-shrink:0}
-.f1 .funil-barra{background:#a81e15;width:100%}
-.f2 .funil-barra{background:#c0261f;width:94%}
-.f3 .funil-barra{background:#d42e23;width:56%}
-.f4 .funil-barra{background:#e63329;width:34%}
-.f5 .funil-barra{background:#f08078;width:17%}
+/* LANCE DESTAQUE */
+.lance-destaque{margin:14px 22px 0;background:#1e3460;border-radius:8px;padding:12px 20px;display:flex;justify-content:space-between;align-items:center}
+.lance-destaque span{font-size:11px;color:#c5d0de;text-transform:uppercase;letter-spacing:.5px}
+.lance-destaque strong{font-size:22px;font-weight:800;color:#fff}
 
-/* ===== CRÉDITO LANCE ===== */
-.credito-lance-box{
-  background:#1a2e4a;color:#fff;border-radius:4px;
-  padding:8px 12px;margin-top:8px;display:flex;align-items:center;justify-content:center;gap:8px;
-}
-.cl-label{font-size:10px}
-.cl-valor{font-size:17px;font-weight:800;color:#e63329}
+/* USOS */
+.usos-area{font-size:11px;color:#3d4a5c;line-height:1.9}
+.uso-item{padding:1px 0}
+.uso-item::before{content:"›";color:#e63329;font-weight:800;margin-right:6px}
+.uso-bens{display:flex;flex-wrap:wrap;gap:6px;margin:6px 0}
+.uso-bens span{background:#1e3460;color:#fff;font-size:9.5px;padding:3px 10px;border-radius:12px;font-weight:600}
 
-/* ===== SIMULAÇÃO NA PROPOSTA ===== */
-.sim-proposta{
-  border:1.5px solid #1a2e4a;border-radius:6px;padding:10px;
-  background:#f7f9fc;
-}
-.sim-p-titulo{
-  background:#1a2e4a;color:#fff;font-size:10px;font-weight:700;
-  letter-spacing:.5px;padding:3px 8px;border-radius:3px;margin-bottom:8px;display:inline-block;
-}
-.sim-p-layout{display:grid;grid-template-columns:1fr 1fr;gap:8px;align-items:stretch}
-.sim-p-info{font-size:10px;line-height:1.9;color:#333}
-.sim-p-info .sim-p-row{display:flex;justify-content:space-between;border-bottom:1px solid #dde4ef;padding:2px 0}
-.sim-p-info .sim-p-row:last-child{border-bottom:none}
-.sim-p-info .sim-p-row span:first-child{color:#667;white-space:nowrap;margin-right:6px}
-.sim-p-info .sim-p-row strong{color:#1a2e4a;font-size:10.5px;text-align:right}
-.sim-p-right{display:flex;flex-direction:column;gap:6px}
-.sim-p-credito{
-  background:#1a2e4a;border-radius:6px;
-  display:flex;flex-direction:column;justify-content:center;align-items:center;
-  padding:10px 8px;gap:3px;text-align:center;
-}
-.sim-p-credito .cred-label{font-size:8.5px;color:#99aabb;text-transform:uppercase;letter-spacing:.5px}
-.sim-p-credito .cred-valor{font-size:20px;font-weight:800;color:#e63329;line-height:1.1}
-.sim-p-credito .cred-sub{font-size:8.5px;color:#667788;margin-top:1px}
-.sim-p-parcela{
-  background:#e63329;border-radius:5px;
-  padding:8px 10px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;
-}
-.sim-p-parcela span{font-size:8.5px;color:#fff;opacity:.85}
-.sim-p-parcela strong{font-size:18px;font-weight:800;color:#fff;line-height:1.2}
-.sim-p-notas{
-  display:flex;align-items:center;justify-content:center;
-  text-align:center;padding:4px 8px;margin-top:2px;
-}
-.sim-p-nota{font-size:8.5px;color:#888;line-height:1.5;white-space:normal;word-break:break-word}
-.sim-p-nota-lance{color:#1a2e4a;font-size:9.5px;font-weight:600}
-.sim-p-nota strong{color:#1a2e4a}
+/* SIMULAÇÃO */
+#sim-proposta-box{border:1.5px solid #d4dae4;border-radius:8px;padding:12px}
+.sim-p-layout{display:grid;grid-template-columns:1.4fr 1fr;gap:12px}
+.sim-p-info{font-size:10px;line-height:1.8}
+.sim-p-row{display:flex;justify-content:space-between;border-bottom:1px solid #eef1f5;padding:2px 0}
+.sim-p-row strong{color:#1e3460}
 .sim-p-row-destaque{background:#fff8e1;border-radius:3px;padding:2px 4px!important;font-weight:700}
-.sim-p-do-bolso{
-  background:#fff3cd;border:1.5px solid #e6a817;border-radius:5px;
-  padding:6px 10px;display:flex;justify-content:space-between;align-items:center;margin-top:4px;
-}
+.sim-p-nota{font-size:8.5px;color:#8a94a0}
+.sim-p-nota-lance{color:#1e3460;font-weight:600}
+.sim-p-right{display:flex;flex-direction:column;gap:6px}
+.sim-p-credito{background:#1e3460;border-radius:6px;padding:12px;text-align:center;color:#fff}
+.sim-p-credito .cred-label{font-size:8.5px;color:#9fb0c4;text-transform:uppercase}
+.sim-p-credito .cred-valor{font-size:20px;font-weight:800;display:block;margin:2px 0}
+.sim-p-credito .cred-sub{font-size:8px;color:#9fb0c4}
+.sim-p-parcela{background:#e63329;border-radius:6px;padding:10px;text-align:center;color:#fff}
+.sim-p-parcela span{font-size:8.5px;opacity:.9}
+.sim-p-parcela strong{font-size:17px;font-weight:800;display:block}
+.sim-p-do-bolso{background:#fff3cd;border:1.5px solid #e6a817;border-radius:6px;padding:8px;display:flex;justify-content:space-between;align-items:center}
 .sim-p-do-bolso span{font-size:9px;color:#7a5c00}
-.sim-p-do-bolso strong{font-size:13px;font-weight:800;color:#7a5c00}
+.sim-p-do-bolso strong{font-size:13px;color:#7a5c00}
 
-/* ===== RODAPÉ ===== */
-.rodape{
-  padding-top:8px;display:flex;justify-content:space-between;align-items:flex-end;
-  border-top:1px solid #dde;font-size:9px;color:#999;margin-top:auto;
+/* RODAPÉ */
+.rodape{margin:auto 22px 0;padding:14px 0 18px;display:flex;justify-content:space-between;align-items:flex-end;border-top:1px solid #e0e5ec;margin-top:18px}
+.rodape>span{font-size:9px;color:#8a94a0;max-width:60%}
+.rodape-assinatura{text-align:right}
+.assinatura-linha{border-bottom:1px solid #1e3460;width:170px;height:20px;margin-bottom:3px}
+.assinatura-nome{font-size:12px;font-weight:700;color:#1e3460}
+
+/* MOBILE */
+#fab-toggle,#fab-print{display:none;position:fixed;bottom:20px;z-index:200;border:none;border-radius:50px;padding:12px 18px;font-size:13px;font-weight:700;cursor:pointer;box-shadow:0 4px 16px rgba(0,0,0,.2)}
+#fab-toggle{right:20px;background:#e63329;color:#fff}
+#fab-print{left:20px;background:#1e3460;color:#fff}
+@media(max-width:768px){
+  #fab-toggle,#fab-print{display:block}
+  #sidebar{width:100%;transform:translateX(0);transition:transform .3s}
+  #sidebar.hidden{transform:translateX(-100%)}
+  #proposta-wrap{margin-left:0;padding:0;display:none}
+  #proposta-wrap.visible{display:flex}
+  .pagina{width:100vw;box-shadow:none}
+  .hero-valor{font-size:24px}
+  .vantagens{grid-template-columns:1fr}
 }
-.assinatura-linha{border-bottom:1px solid #1a2e4a;width:150px;margin-bottom:3px;height:20px}
-.assinatura-nome{font-size:11px;font-weight:700;color:#1a2e4a}
 
-/* ===== PRINT ===== */
+/* PRINT — cores mantidas, otimizado P&B */
 @media print{
-  body{background:#fff;-webkit-print-color-adjust:exact;print-color-adjust:exact}
-  #sidebar{display:none!important}
-  #fab-toggle,#fab-print{display:none!important}
+  body{background:#fff;-webkit-print-color-adjust:exact;print-color-adjust:exact;margin:0}
+  #sidebar,#fab-toggle,#fab-print{display:none!important}
   #proposta-wrap{margin-left:0!important;padding:0!important;display:flex!important}
-  .pagina{
-    box-shadow:none!important;
-    width:100%!important;
-    min-height:auto!important;
-    height:auto!important;
-    padding:6mm 9mm!important;
-    transform:none!important;
-    page-break-inside:avoid;
-    page-break-after:avoid;
-    -webkit-column-break-inside:avoid;
-    overflow:hidden!important;
-  }
-  .grade{page-break-inside:avoid;-webkit-column-break-inside:avoid}
-  .card{page-break-inside:avoid;-webkit-column-break-inside:avoid}
-  .sim-proposta{page-break-inside:avoid;-webkit-column-break-inside:avoid}
-  .rodape{page-break-inside:avoid;-webkit-column-break-inside:avoid}
-  /* Scale down slightly to fit A4 in Safari */
-  #proposta-wrap{zoom:0.92}
-  body{font-size:13px!important}
-  .card ul li{font-size:12px!important}
-  .card-titulo{font-size:11.5px!important}
-  .sec-titulo{font-size:12px!important}
-  .funil-label{font-size:10px!important}
-  .funil-barra{font-size:12px!important}
-  .contatos{font-size:11.5px!important}
-  .badge{font-size:11.5px!important}
-  .uso-item{font-size:12px!important}
-  .uso-bens span{font-size:10.5px!important}
-  .sim-p-row span,.sim-p-row strong{font-size:11px!important}
-  .credito-lance-box .cl-label{font-size:11px!important}
-}
-@page{size:A4 portrait;margin:6mm}
-
-/* ===== MOBILE ===== */
-#fab-toggle {
-  display:none;
-  position:fixed;bottom:20px;right:20px;z-index:200;
-  background:#e63329;color:#fff;border:none;border-radius:50px;
-  padding:13px 20px;font-size:14px;font-weight:700;
-  box-shadow:0 4px 16px rgba(230,51,41,.4);cursor:pointer;
-}
-#fab-print {
-  display:none;
-  position:fixed;bottom:20px;left:20px;z-index:200;
-  background:#1a2e4a;color:#fff;border:none;border-radius:50px;
-  padding:13px 20px;font-size:14px;font-weight:700;
-  box-shadow:0 4px 16px rgba(0,0,0,.3);cursor:pointer;
-}
-@media (max-width:768px) {
-  body { background:#f0f2f5; }
-
-  #fab-toggle, #fab-print { display:block; }
-
-  /* Sidebar vira tela cheia */
-  #sidebar {
-    position:fixed;left:0;top:0;width:100%;height:100%;
-    overflow-y:auto;z-index:100;
-    transform:translateX(0);transition:transform .3s ease;
-    padding:16px 16px 100px;
-  }
-  #sidebar.hidden { transform:translateX(-100%); }
-
-  /* Proposta */
-  #proposta-wrap {
-    margin-left:0;padding:0;
-    display:none;
-  }
-  #proposta-wrap.visible { display:flex; }
-
-  /* Escala a proposta A4 para caber na tela */
-  .pagina {
-    width:100vw;min-height:auto;
-    padding:5mm 5mm 8mm;
-    box-shadow:none;
-    transform-origin:top left;
-  }
-
-  /* Esconde FABs e sidebar na impressão */
-  @media print {
-    #fab-toggle, #fab-print { display:none !important; }
-    #sidebar { display:none !important; }
-    #proposta-wrap { display:flex !important; margin-left:0; padding:0; }
-  }
+  .pagina{box-shadow:none!important;width:210mm!important;min-height:auto!important}
+  .topo{background:#1e3460!important}
+  .hero-credito,.sim-p-credito,.lance-destaque,.uso-bens span,.vant-ico,.mod-cabecalho{background:#1e3460!important;color:#fff!important}
+  .hero-parcela,.sim-p-parcela{background:#e63329!important;color:#fff!important}
+  .secao{page-break-inside:avoid}
+  .hero{page-break-inside:avoid}
+  .contempla-grid{page-break-inside:avoid}
+  #sim-area{page-break-before:auto}
+  /* Compacta levemente para garantir 1 página quando sem simulação */
+  .secao{margin-top:14px!important}
+  .hero{margin-top:12px!important}
+  .info-rapida{margin-top:10px!important}
+  .lance-destaque{margin-top:10px!important}
+  .ct-barra{background:#1e3460!important}
+  .ct-fid .ct-barra{background:#e63329!important}
+  @page{size:A4 portrait;margin:0}
 }
 </style>
 </head>
 <body>
 
-<!-- ====== SIDEBAR ====== -->
 <button id="fab-toggle" onclick="toggleMobileView()">📋 Ver Proposta</button>
 <button id="fab-print" onclick="window.print()" style="display:none">🖨️ Imprimir</button>
+
+
 
 <div id="sidebar">
 
@@ -404,131 +286,103 @@ body{font-family:'Segoe UI',Arial,sans-serif;background:#e8ecf2;color:#222;font-
 </div>
 
 <!-- ====== PROPOSTA ====== -->
+
+
 <div id="proposta-wrap">
   <div class="pagina">
 
-    <!-- CABEÇALHO -->
-    <div class="cabecalho">
-      <img id="logo-img" src="" alt="Redecon Consórcios" style="height:56px">
-      <div class="contatos">
-        <div class="c-row">
-          <svg class="c-ico" viewBox="0 0 24 24" fill="none" stroke="#e63329" stroke-width="2.2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
-          <span id="p-insta">@fhellypenr</span>
-        </div>
-        <div class="c-row">
-          <svg class="c-ico" viewBox="0 0 24 24" fill="none" stroke="#e63329" stroke-width="2.2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.63 3.4 2 2 0 0 1 3.6 1h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 8.91a16 16 0 0 0 6 6l.77-.77a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-          <span id="p-tel">46 99935-4939 / 3025-3227</span>
-        </div>
-        <div class="c-row">
-          <svg class="c-ico" viewBox="0 0 24 24" fill="none" stroke="#e63329" stroke-width="2.2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-          <span id="p-email">fhellypenr@gmail.com</span>
-        </div>
-        <div class="c-row">
-          <svg class="c-ico" viewBox="0 0 24 24" fill="none" stroke="#e63329" stroke-width="2.2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-          <span id="p-end">Rua Goianases, 536 – Pato Branco</span>
-        </div>
+    <!-- FAIXA SUPERIOR AZUL -->
+    <div class="topo">
+      <img id="logo-img" src="" alt="Redecon" class="topo-logo">
+      <div class="topo-contatos">
+        <span id="p-insta">@redeconconsorcios</span>
+        <span id="p-tel">46 3025-3227</span>
+        <span id="p-email">rede.con@hotmail.com</span>
+        <span id="p-end">Rua Goianases, 536 – Pato Branco (PR)</span>
       </div>
     </div>
 
-    <!-- BADGES -->
-    <div class="badges">
-      <div class="badge"><span class="badge-label">Cliente:</span>&nbsp;<span id="p-nome">—</span></div>
-      <div class="badge"><span class="badge-label">Interesse:</span>&nbsp;<span id="p-interesse">Imóvel</span></div>
-      <div class="badge"><span class="badge-label">Data:</span>&nbsp;<span id="p-data">—</span></div>
+    <!-- FAIXA CLIENTE -->
+    <div class="cliente-faixa">
+      <div class="cf-bloco"><div class="cf-label">Cliente</div><div class="cf-valor" id="p-nome">—</div></div>
+      <div class="cf-bloco"><div class="cf-label">Interesse</div><div class="cf-valor" id="p-interesse">Imóvel</div></div>
+      <div class="cf-bloco"><div class="cf-label">Data</div><div class="cf-valor" id="p-data">—</div></div>
     </div>
 
-    <div class="sec-titulo">Detalhes da Apresentação:</div>
-
-    <!-- GRADE PRINCIPAL -->
-    <div class="grade">
-
-      <!-- RESUMO -->
-      <div class="card">
-        <div class="card-titulo">RESUMO</div>
-        <ul>
-          <li><strong>Crédito Inicial:</strong>&nbsp;<span id="p-credito">—</span></li>
-          <li><strong>Meia Parcela Inicial:</strong>&nbsp;<span id="p-parcela">—</span></li>
-          <li><strong>Prazo:</strong>&nbsp;<span id="p-prazo">—</span> meses</li>
-          <li><strong>Taxa Administrativa:</strong>&nbsp;<span id="p-taxa">—</span> ao ano</li>
-          <li><strong>Fundo de Reserva:</strong>&nbsp;<span id="p-fundo-val">1%</span> no prazo total</li>
-          <li><strong>Reajuste:</strong>&nbsp;5% ao ano (fixo)</li>
-        </ul>
+    <!-- HERO: CRÉDITO + PARCELA -->
+    <div class="hero">
+      <div class="hero-credito">
+        <div class="hero-label">Seu Crédito</div>
+        <div class="hero-valor" id="p-credito">—</div>
+        <div class="hero-sub">carta contemplada</div>
       </div>
-
-      <!-- POSSIBILIDADES -->
-      <div class="card">
-        <div class="card-titulo">POSSIBILIDADES DE UTILIZAÇÃO</div>
-        <div id="p-usos"></div>
+      <div class="hero-mais">+</div>
+      <div class="hero-parcela">
+        <div class="hero-label">Parcela</div>
+        <div class="hero-valor" id="p-parcela">—</div>
+        <div class="hero-sub"><span id="p-prazo">—</span> meses · meia parcela até contemplar</div>
       </div>
+    </div>
 
-      <!-- VANTAGENS -->
-      <div class="card">
-        <div class="card-titulo">VANTAGENS DO PRODUTO</div>
-        <ul>
-          <li>Sem juros e sem entrada</li>
-          <li>Meia parcela até a contemplação</li>
-          <li>Lance embutido de 30%</li>
-          <li>Até 6 possibilidades de contemplação a partir da 18ª parcela</li>
-          <li>Consultoria especializada antes, durante e após contemplado</li>
-        </ul>
+    <!-- LINHA DE INFO RÁPIDA -->
+    <div class="info-rapida">
+      <div class="ir-item"><div class="ir-num" id="p-taxa">—</div><div class="ir-txt">Taxa Adm. ao ano</div></div>
+      <div class="ir-item"><div class="ir-num" id="p-fundo-val">1%</div><div class="ir-txt">Fundo de Reserva</div></div>
+      <div class="ir-item"><div class="ir-num">5%</div><div class="ir-txt">Reajuste anual (fixo)</div></div>
+      <div class="ir-item"><div class="ir-num">30%</div><div class="ir-txt">Lance embutido</div></div>
+    </div>
+
+    <!-- VANTAGENS -->
+    <div class="secao">
+      <div class="secao-titulo">Por que escolher o consórcio Redecon</div>
+      <div class="vantagens">
+        <div class="vant"><div class="vant-ico">✓</div><span>Sem juros e sem entrada</span></div>
+        <div class="vant"><div class="vant-ico">✓</div><span>Meia parcela até a contemplação</span></div>
+        <div class="vant"><div class="vant-ico">✓</div><span>Lance embutido de 30%</span></div>
+        <div class="vant"><div class="vant-ico">✓</div><span>Consultoria em todas as etapas</span></div>
       </div>
+    </div>
 
-      <!-- FUNIL -->
-      <div class="card">
-        <div class="card-titulo">ACELERE SUA CONTEMPLAÇÃO</div>
-        <div style="display:flex;gap:4px;align-items:center">
-        <div class="funil-wrap" style="flex:1">
-          <div class="funil-item f1">
-            <div class="funil-barra-wrap"><div class="funil-barra">90%</div></div>
-            <div class="funil-label">SORTEIO</div>
-          </div>
-          <div class="funil-item f2">
-            <div class="funil-barra-wrap"><div class="funil-barra">85%</div></div>
-            <div class="funil-label">LANCE LIMITADO</div>
-          </div>
-          <div class="funil-item f3">
-            <div class="funil-barra-wrap"><div class="funil-barra">50%</div></div>
-            <div class="funil-label">FIDELIDADE 1</div>
-          </div>
-          <div class="funil-item f4">
-            <div class="funil-barra-wrap"><div class="funil-barra">30%</div></div>
-            <div class="funil-label">FIDELIDADE 2</div>
-          </div>
-          <div class="funil-item f5">
-            <div class="funil-barra-wrap"><div class="funil-barra">15%</div></div>
-            <div class="funil-label">FIDELIDADE 3</div>
-          </div>
-        </div>
-        <div style="writing-mode:vertical-rl;transform:rotate(180deg);font-size:7px;color:#aaa;opacity:.7;white-space:nowrap;letter-spacing:.5px;text-transform:uppercase;align-self:center;padding:2px 0">% de concorrência em cada modalidade</div>
-        </div>
-        <div style="margin-top:8px;font-size:8.5px;color:#1a2e4a;line-height:1.6;background:#f0f3f8;border-radius:4px;padding:6px 8px">
-  <strong>Pague em dia</strong> e conquiste as fidelidades<br>
-  <strong>Reduza os concorrentes</strong> a cada assembleia<br>
-  <strong>Antecipe sua contemplação</strong> com lance embutido<br>
-</div>
-        <div class="credito-lance-box" style="flex-direction:column;gap:4px">
-          <span style="font-size:10px;color:#aabbd0;text-align:center;font-style:italic;width:100%">Lances descontados do próprio crédito</span>
-          <div style="display:flex;align-items:center;gap:8px">
-            <span class="cl-label">Crédito no lance</span>
-            <span id="p-lance" class="cl-valor">—</span>
-          </div>
-        </div>
+    <!-- FORMAS DE CONTEMPLAÇÃO (destaque) -->
+    <div class="secao">
+      <div class="secao-titulo">Formas de Contemplação — quanto menor a concorrência, maior sua chance</div>
+      <div class="contempla-grid">
+        <div class="ct-card"><div class="ct-nome">Sorteio</div><div class="ct-barra-wrap"><div class="ct-barra" style="width:100%"></div></div><div class="ct-pct">90%</div></div>
+        <div class="ct-card"><div class="ct-nome">Lance Limitado</div><div class="ct-barra-wrap"><div class="ct-barra" style="width:94%"></div></div><div class="ct-pct">85%</div></div>
+        <div class="ct-card ct-fid"><div class="ct-nome">Fidelidade 1</div><div class="ct-barra-wrap"><div class="ct-barra" style="width:56%"></div></div><div class="ct-pct">50%</div></div>
+        <div class="ct-card ct-fid"><div class="ct-nome">Fidelidade 2</div><div class="ct-barra-wrap"><div class="ct-barra" style="width:34%"></div></div><div class="ct-pct">30%</div></div>
+        <div class="ct-card ct-fid"><div class="ct-nome">Fidelidade 3</div><div class="ct-barra-wrap"><div class="ct-barra" style="width:17%"></div></div><div class="ct-pct">15%</div></div>
       </div>
+      <div class="contempla-legenda">Percentual de concorrência em cada modalidade · Pague em dia e conquiste as fidelidades para acelerar sua contemplação</div>
+    </div>
 
-      <!-- SIMULAÇÃO (condicional) -->
-      <div id="sim-proposta-box" class="sim-proposta" style="display:none;grid-column:1/-1">
-        <div class="sim-p-titulo">SIMULAÇÃO PÓS-CONTEMPLAÇÃO</div>
+    <!-- CRÉDITO NO LANCE -->
+    <div class="lance-destaque">
+      <span>Crédito disponível para lance (70%)</span>
+      <strong id="p-lance">—</strong>
+    </div>
+
+    <!-- POSSIBILIDADES DE USO -->
+    <div class="secao">
+      <div class="secao-titulo">O que você pode adquirir</div>
+      <div id="p-usos" class="usos-area"></div>
+    </div>
+
+    <!-- SIMULAÇÃO (opcional) -->
+    <div id="sim-area" class="secao" style="display:none">
+      <div class="secao-titulo">Simulação Pós-Contemplação</div>
+      <div id="sim-proposta-box">
         <div id="sim-proposta-conteudo"></div>
       </div>
-
-    </div><!-- /grade -->
+    </div>
+    <div id="sim-resultado" style="display:none"></div>
 
     <!-- RODAPÉ -->
     <div class="rodape">
-      <p>* Apresentação informativa. Valores sujeitos a alterações conforme disponibilidade de vaga no grupo.</p>
-      <div style="text-align:right">
+      <span>* Apresentação informativa. Valores sujeitos a alterações conforme disponibilidade de vaga no grupo.</span>
+      <div class="rodape-assinatura">
         <div class="assinatura-linha"></div>
-        <div id="p-assinatura" class="assinatura-nome">Fhellype Novello Resner</div>
+        <div id="p-assinatura" class="assinatura-nome">Redecon Consórcios</div>
       </div>
     </div>
 
