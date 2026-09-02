@@ -153,7 +153,7 @@ body{font-family:'Segoe UI',Arial,sans-serif;background:#eef1f5;color:#2d3748;fo
   .secao{page-break-inside:avoid}
   .hero{page-break-inside:avoid}
   .contempla-grid{page-break-inside:avoid}
-  #sim-area{page-break-before:always}
+  #sim-print-area{page-break-before:always}
   /* Compacta levemente para garantir 1 página quando sem simulação */
   .secao{margin-top:14px!important}
   .hero{margin-top:12px!important}
@@ -286,8 +286,6 @@ body{font-family:'Segoe UI',Arial,sans-serif;background:#eef1f5;color:#2d3748;fo
   </div>
 
   <div class="divider"></div>
-    <div id="sim-resultado" style="display:none;margin-top:10px;background:#26436b;border-radius:6px;padding:10px;font-size:11px"></div>
-
   <button id="btn-imprimir" onclick="window.print()">Imprimir / Salvar PDF</button>
   <p class="nota">Selecione "Salvar como PDF" e desative cabeçalhos/rodapés do navegador.</p>
 </div>
@@ -377,7 +375,7 @@ body{font-family:'Segoe UI',Arial,sans-serif;background:#eef1f5;color:#2d3748;fo
     </div>
 
     <!-- SIMULAÇÃO (opcional) -->
-    <div id="sim-area" class="secao" style="display:none">
+    <div id="sim-print-area" class="secao" style="display:none">
       <div class="secao-titulo">Simulação Pós-Contemplação</div>
       <div id="sim-proposta-box">
         <div id="sim-proposta-conteudo"></div>
@@ -572,8 +570,10 @@ function atualizar() {
 // ---- TOGGLE SIMULAÇÃO ----
 function toggleSim() {
   const show = document.getElementById('chk-sim').checked;
+  // sim-area = formulário na sidebar; sim-print-area = bloco na apresentação
   document.getElementById('sim-area').style.display = show ? 'block' : 'none';
-  document.getElementById('sim-proposta-box').style.display = show ? 'block' : 'none';
+  const printArea = document.getElementById('sim-print-area');
+  if (printArea) printArea.style.display = show ? 'block' : 'none';
   if (show) calcSim();
 }
 
@@ -587,12 +587,18 @@ function calcSim() {
 
   const resEl  = document.getElementById('sim-resultado');
   const propEl = document.getElementById('sim-proposta-conteudo');
+  const printArea = document.getElementById('sim-print-area');
+  const simOn = document.getElementById('chk-sim').checked;
 
   if (!credito || !prazo || !nParcela || nParcela > prazo) {
     resEl.style.display = 'none';
     propEl.innerHTML = '';
+    if (printArea) printArea.style.display = 'none';
     return;
   }
+
+  // Se simulação ativa, garante que o bloco na folha apareça
+  if (printArea) printArea.style.display = simOn ? 'block' : 'none';
 
   // Taxa total real dos campos do formulário
   const taxaTotalAdm = parseFloat(document.getElementById('f-taxa-total').value) || (tipoAtual === 'imovel' ? 22 : 15);
