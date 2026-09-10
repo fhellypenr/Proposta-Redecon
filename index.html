@@ -71,15 +71,6 @@ body{font-family:'Segoe UI',Arial,sans-serif;background:#eef1f5;color:#2d3748;fo
 .vant-ico{width:18px;height:18px;background:#1e3460;color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:800;flex-shrink:0}
 
 /* CONTEMPLAÇÃO */
-.contempla-grid{display:flex;flex-direction:column;gap:6px}
-.ct-card{display:flex;align-items:center;gap:10px}
-.ct-nome{width:110px;font-size:11px;font-weight:700;color:#1e3460;flex-shrink:0}
-.ct-fid .ct-nome{color:#e63329}
-.ct-barra-wrap{flex:1;background:#eef1f5;border-radius:5px;height:22px;overflow:hidden}
-.ct-barra{height:100%;background:linear-gradient(90deg,#1e3460,#2d4a75);border-radius:5px}
-.ct-fid .ct-barra{background:linear-gradient(90deg,#e63329,#f0655c)}
-.ct-pct{width:44px;text-align:right;font-size:13px;font-weight:800;color:#1e3460;flex-shrink:0}
-.ct-fid .ct-pct{color:#e63329}
 .contempla-legenda{font-size:9px;color:#8a94a0;font-style:italic;margin-top:8px;text-align:center}
 .contempla-nota{font-size:9px;color:#1e3460;margin-top:4px;text-align:center;background:#f4f6f9;border-radius:5px;padding:5px 8px;font-weight:600}
 
@@ -153,15 +144,12 @@ body{font-family:'Segoe UI',Arial,sans-serif;background:#eef1f5;color:#2d3748;fo
   .hero-parcela,.sim-p-parcela{background:#e63329!important;color:#fff!important}
   .secao{page-break-inside:avoid}
   .hero{page-break-inside:avoid}
-  .contempla-grid{page-break-inside:avoid}
   #sim-print-area{page-break-before:always}
   /* Compacta levemente para garantir 1 página quando sem simulação */
   .secao{margin-top:14px!important}
   .hero{margin-top:12px!important}
   .info-rapida{margin-top:10px!important}
   .lance-destaque{margin-top:10px!important}
-  .ct-barra{background:#1e3460!important}
-  .ct-fid .ct-barra{background:#e63329!important}
   @page{size:A4 portrait;margin:0}
 }
 </style>
@@ -353,7 +341,6 @@ body{font-family:'Segoe UI',Arial,sans-serif;background:#eef1f5;color:#2d3748;fo
       <div class="vantagens">
         <div class="vant"><div class="vant-ico">✓</div><span>Sem juros e sem entrada</span></div>
         <div class="vant"><div class="vant-ico">✓</div><span>Meia parcela até a contemplação</span></div>
-        <div class="vant"><div class="vant-ico">✓</div><span>Lance embutido de 30%</span></div>
         <div class="vant"><div class="vant-ico">✓</div><span>Consultoria em todas as etapas</span></div>
       </div>
     </div>
@@ -361,13 +348,44 @@ body{font-family:'Segoe UI',Arial,sans-serif;background:#eef1f5;color:#2d3748;fo
     <!-- FORMAS DE CONTEMPLAÇÃO (destaque) -->
     <div class="secao">
       <div class="secao-titulo">Formas de Contemplação — quanto menor a concorrência, maior sua chance</div>
-      <div class="contempla-grid">
-        <div class="ct-card"><div class="ct-nome">Sorteio</div><div class="ct-barra-wrap"><div class="ct-barra" style="width:100%"></div></div><div class="ct-pct">90%</div></div>
-        <div class="ct-card"><div class="ct-nome">Lance Limitado</div><div class="ct-barra-wrap"><div class="ct-barra" style="width:94%"></div></div><div class="ct-pct">85%</div></div>
-        <div class="ct-card ct-fid"><div class="ct-nome">Fidelidade 1</div><div class="ct-barra-wrap"><div class="ct-barra" style="width:56%"></div></div><div class="ct-pct">50%</div></div>
-        <div class="ct-card ct-fid"><div class="ct-nome">Fidelidade 2</div><div class="ct-barra-wrap"><div class="ct-barra" style="width:34%"></div></div><div class="ct-pct">30%</div></div>
-        <div class="ct-card ct-fid"><div class="ct-nome">Fidelidade 3</div><div class="ct-barra-wrap"><div class="ct-barra" style="width:17%"></div></div><div class="ct-pct">15%</div></div>
-      </div>
+      <svg viewBox="0 0 700 210" width="100%" style="display:block" role="img" aria-label="Funil de concorrência por modalidade">
+        <path d="M20,15 L240,15 L234,51 L26,51 Z" fill="#FCEBEB"/>
+        <path d="M26,51 L234,51 L191,87 L69,87 Z" fill="#F7C1C1"/>
+        <path d="M69,87 L191,87 L167,123 L93,123 Z" fill="#F09595"/>
+        <path d="M93,123 L167,123 L148,159 L112,159 Z" fill="#E24B4A"/>
+        <path d="M112,159 L148,159 L142,195 L118,195 Z" fill="#A32D2D"/>
+
+        <text x="130" y="37" text-anchor="middle" font-size="13" font-weight="700" fill="#791F1F">90%</text>
+        <text x="130" y="73" text-anchor="middle" font-size="13" font-weight="700" fill="#791F1F">85%</text>
+        <text x="130" y="109" text-anchor="middle" font-size="12" font-weight="700" fill="#791F1F">50%</text>
+        <text x="130" y="145" text-anchor="middle" font-size="11" font-weight="700" fill="#fff">30%</text>
+        <text x="130" y="181" text-anchor="middle" font-size="10" font-weight="700" fill="#fff">15%</text>
+
+        <circle cx="237" cy="33" r="3" fill="#F7C1C1"/>
+        <line x1="241" y1="33" x2="260" y2="33" stroke="#c5d0de" stroke-width="1"/>
+        <text x="266" y="37" font-size="11" font-weight="700" fill="#1e3460">Sorteio</text>
+        <text x="266" y="49" font-size="8.5" fill="#8a94a0">Parcela em dia</text>
+
+        <circle cx="213" cy="69" r="3" fill="#F09595"/>
+        <line x1="217" y1="69" x2="260" y2="69" stroke="#c5d0de" stroke-width="1"/>
+        <text x="266" y="73" font-size="11" font-weight="700" fill="#1e3460">Lance limitado</text>
+        <text x="266" y="85" font-size="8.5" fill="#8a94a0">Parcela em dia</text>
+
+        <circle cx="179" cy="105" r="3" fill="#E24B4A"/>
+        <line x1="183" y1="105" x2="260" y2="105" stroke="#c5d0de" stroke-width="1"/>
+        <text x="266" y="109" font-size="11" font-weight="700" fill="#1e3460">Fidelidade 1</text>
+        <text x="266" y="121" font-size="8.5" fill="#8a94a0">6 meses em dia</text>
+
+        <circle cx="158" cy="141" r="3" fill="#A32D2D"/>
+        <line x1="162" y1="141" x2="260" y2="141" stroke="#c5d0de" stroke-width="1"/>
+        <text x="266" y="145" font-size="11" font-weight="700" fill="#1e3460">Fidelidade 2</text>
+        <text x="266" y="157" font-size="8.5" fill="#8a94a0">12 meses em dia</text>
+
+        <circle cx="145" cy="177" r="3" fill="#791F1F"/>
+        <line x1="149" y1="177" x2="260" y2="177" stroke="#c5d0de" stroke-width="1"/>
+        <text x="266" y="181" font-size="11" font-weight="700" fill="#1e3460">Fidelidade 3</text>
+        <text x="266" y="193" font-size="8.5" fill="#8a94a0">18 meses em dia</text>
+      </svg>
       <div class="contempla-legenda">Quanto mais parcelas em dia, menor a concorrência e maiores suas chances de contemplação</div>
       <div class="contempla-nota">Nas modalidades de lance (Limitado e Fidelidades), o lance é totalmente descontado do próprio crédito — sem pagar do bolso.</div>
     </div>
