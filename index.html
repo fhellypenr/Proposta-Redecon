@@ -59,6 +59,7 @@ body{font-family:'Segoe UI',Arial,sans-serif;background:#eef1f5;color:#2d3748;fo
 .ir-item{background:#f4f6f9;border-radius:8px;padding:10px;text-align:center}
 .ir-num{font-size:16px;font-weight:800;color:#1e3460}
 .ir-txt{font-size:8.5px;color:#6a7480;margin-top:2px;text-transform:uppercase;letter-spacing:.3px}
+.ir-txt-livre{font-size:10.5px;text-transform:none;letter-spacing:normal;font-weight:700;color:#1e3460;margin-top:0;line-height:1.25}
 
 /* SEÇÕES */
 .secao{margin:18px 22px 0}
@@ -236,6 +237,15 @@ body{font-family:'Segoe UI',Arial,sans-serif;background:#eef1f5;color:#2d3748;fo
     </div>
   </div>
 
+  <label>Reajuste Anual</label>
+  <div class="tipo-btn">
+    <button id="btn-reaj-fixo" class="ativo" onclick="setReajusteTipo('fixo')">Fixo 5%</button>
+    <button id="btn-reaj-edit" onclick="setReajusteTipo('editavel')">Editável</button>
+  </div>
+  <div id="reajuste-edit-wrap" style="display:none">
+    <input id="f-reajuste-texto" type="text" placeholder="Ex: INPC limitado a 10%" oninput="atualizarReajuste()">
+  </div>
+
   <label>Tipo de parcela</label>
   <div class="tipo-btn">
     <button id="btn-meia" class="ativo" onclick="setTipoParcela('meia')">Meia Parcela</button>
@@ -333,7 +343,7 @@ body{font-family:'Segoe UI',Arial,sans-serif;background:#eef1f5;color:#2d3748;fo
     <div class="info-rapida">
       <div class="ir-item"><div class="ir-num" id="p-taxa">—</div><div class="ir-txt">Taxa Adm. ao ano</div></div>
       <div class="ir-item"><div class="ir-num" id="p-fundo-val">1%</div><div class="ir-txt">Fundo de Reserva</div></div>
-      <div class="ir-item"><div class="ir-num">5%</div><div class="ir-txt">Reajuste anual (fixo)</div></div>
+      <div class="ir-item"><div class="ir-num" id="p-reajuste-num">5%</div><div class="ir-txt" id="p-reajuste-txt">Reajuste anual (fixo)</div></div>
       <div class="ir-item"><div class="ir-num">30%</div><div class="ir-txt">Lance embutido</div></div>
     </div>
 
@@ -485,6 +495,32 @@ function setTipoParcela(tipo) {
   document.getElementById('btn-meia').classList.toggle('ativo', tipo === 'meia');
   document.getElementById('btn-cheia').classList.toggle('ativo', tipo === 'cheia');
   calcParcelaManual();
+}
+
+// ---- REAJUSTE (fixo x editável) ----
+let reajusteTipo = 'fixo';
+function setReajusteTipo(tipo) {
+  reajusteTipo = tipo;
+  document.getElementById('btn-reaj-fixo').classList.toggle('ativo', tipo === 'fixo');
+  document.getElementById('btn-reaj-edit').classList.toggle('ativo', tipo === 'editavel');
+  document.getElementById('reajuste-edit-wrap').style.display = tipo === 'editavel' ? 'block' : 'none';
+  atualizarReajuste();
+}
+
+function atualizarReajuste() {
+  const numEl = document.getElementById('p-reajuste-num');
+  const txtEl = document.getElementById('p-reajuste-txt');
+  if (reajusteTipo === 'fixo') {
+    numEl.style.display = '';
+    numEl.textContent = '5%';
+    txtEl.className = 'ir-txt';
+    txtEl.textContent = 'Reajuste anual (fixo)';
+  } else {
+    const texto = document.getElementById('f-reajuste-texto').value.trim();
+    numEl.style.display = 'none';
+    txtEl.className = 'ir-txt ir-txt-livre';
+    txtEl.textContent = texto || 'Reajuste anual (editável)';
+  }
 }
 
 // ---- TAXA AUTOMÁTICA + PARCELA ----
@@ -811,6 +847,7 @@ window.addEventListener('resize', () => {
 
 // ---- INIT ----
 renderUsos('imovel');
+atualizarReajuste();
 </script>
 </body>
 </html>
